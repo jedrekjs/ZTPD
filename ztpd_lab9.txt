@@ -1,0 +1,33 @@
+//zad 24
+"SELECT IRSTREAM spolka as X, kursOtwarcia as Y " +
+"FROM KursAkcji.win:length(3) " +
+"WHERE spolka = 'Oracle'"
+
+
+//zad 25
+"SELECT IRSTREAM data, kursOtwarcia, spolka " +
+"FROM KursAkcji.win:length(3) " +
+"WHERE spolka = 'Oracle'"
+	
+//zad 26
+"SELECT IRSTREAM data, kursOtwarcia, spolka " +
+"FROM KursAkcji(spolka='Oracle').win:length(3) "
+	
+//zad 27
+"SELECT ISTREAM data, kursOtwarcia, spolka " +
+"FROM KursAkcji(spolka='Oracle').win:length(3) "
+
+//zad 28
+"SELECT ISTREAM MAX(kursOtwarcia) " +
+"FROM KursAkcji(spolka='Oracle').win:length(5) "
+
+//zad 29
+"SELECT ISTREAM kursOtwarcia - MAX(kursOtwarcia) AS roznica " +
+"FROM KursAkcji(spolka='Oracle').win:length(5) "
+//odpowiedz: do funkcji max brane są wartości z okna, a nie z całego zbioru
+
+//zad 30
+"SELECT ISTREAM data, spolka, kursOtwarcia - MIN(kursOtwarcia) AS roznica " +
+"FROM KursAkcji(spolka='Oracle').win:length(2) " +
+"HAVING kursOtwarcia > MIN(kursOtwarcia)"
+//odpowiedz: wynik jest poprawny, widoczne są tylko wzrosty
